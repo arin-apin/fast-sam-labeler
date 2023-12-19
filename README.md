@@ -9,6 +9,7 @@ Keys:
  - 0-9     Label selection 
  - r/m Change mode (auto/manual) 
  - esc/q   Exit
+ - +/-     Increase or decrease confidence for SAM auto mode
 
 ## Requeriments
 Pytorch (gpu support optional)<br>
