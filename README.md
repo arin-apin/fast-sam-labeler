@@ -12,6 +12,7 @@ Keys:
  - +/-     Increase or decrease confidence for SAM auto mode
 
 ## Requeriments
+OpenCV<br>
 Pytorch (gpu support optional)<br>
 Ultralytics
 
