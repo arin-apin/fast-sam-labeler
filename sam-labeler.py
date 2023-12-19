@@ -15,6 +15,7 @@ Usage:
     +/-     Increase or decrease confidence for SAM auto mode
 
 Requeriments:
+    OpenCV
     Pytorch (gpu support optional)
     Ultralytics
 
