@@ -4,16 +4,17 @@ import xml.etree.ElementTree as ET
 from fastsam import SAM
 
 """
-USAGE
-    set image_folder, output_folder, labels variables below
+Usage:
+    Set image_folder, output_folder, labels variables below
     Keys:
     a:      Previous image
     d       Next image
     0-9     Label selection
     r/m     Change mode (auto/manual)
     esc/q   Exit
+    +/-     Increase or decrease confidence for SAM auto mode
 
-Requeriments
+Requeriments:
     Pytorch (gpu support optional)
     Ultralytics
 
