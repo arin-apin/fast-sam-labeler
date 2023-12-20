@@ -25,7 +25,7 @@ Pytorch (gpu support optional)<br>
 Ultralytics
 
 ## Citation:
-Original Fast Sam implementation from these grest guys:<br>
+Original Fast Sam implementation from these great guys:<br>
 Xu Zhao, Wenchao Ding, Yongqi An, Yinglong Du, Tao Yu, Min Li, Ming Tang, Jinqiao Wang<br>
 Can be found in Arxiv:<br>
 [https://arxiv.org/abs/2306.12156](https://arxiv.org/abs/2306.12156)
