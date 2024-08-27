@@ -26,6 +26,23 @@ Citation:
     https://arxiv.org/abs/2306.12156
 """
 
+import shutil
+import sys
+from pathlib import Path
+
+def move_to_trash(file_path):
+    trash_dir = Path.home() / '.Trash'
+    trash_dir.mkdir(parents=True, exist_ok=True)
+    shutil.move(file_path, trash_dir)
+
+def delete_image_and_xml(image_path, xml_dir):
+    file_name = Path(image_path).stem
+    xml_path = Path(xml_dir) / f"{file_name}.xml"
+    
+    move_to_trash(image_path)
+    
+    if xml_path.exists():
+        move_to_trash(xml_path)
 
 image_folder = '/home/pablo/DS/cobopa/OD/25082024/images'
 output_folder = '/home/pablo/DS/cobopa/OD/25082024/Annotations'
@@ -92,7 +109,6 @@ class ImageEditor:
             cv2.putText(image, 'Confidence: '+ f"{self.sam.confidence:.1f}", (0,80), cv2.FONT_HERSHEY_DUPLEX, 0.7, self.colors[self.selected_color], 1, cv2.LINE_AA)
             cv2.imshow('FastSam Image Labeler', image)
             key = cv2.waitKey(1)
-
             if key == ord('d'):  # fw
                 if self.current_image_index < len(self.images)-1:
                     self.current_image_index = self.current_image_index + 1
@@ -116,6 +132,13 @@ class ImageEditor:
                     self.sam.confidence -= .1
             elif key == 27 or key == ord('q'):  # ESC
                 break
+            elif key == 255:  # 0x2E is the keycode for the 'Delete' (Supr) key
+                delete_image_and_xml(image_path, self.output_folder)
+                print(f"Moved {image_path} and corresponding XML to trash.")
+                if self.current_image_index < len(self.images)-1:
+                    self.current_image_index = self.current_image_index + 1
+                    self.rectangles = []
+                    self.load_rectangles()
             elif 48 <= key <= 57: 
                 self.selected_color=key-48
 
