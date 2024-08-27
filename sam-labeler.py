@@ -27,12 +27,12 @@ Citation:
 """
 
 
-image_folder = '/home/pablo/DS/orange cookies/Images'
-output_folder = '/home/pablo/DS/orange cookies/Annotations'
-labels = ['foo','OK', 'NOK']
-device = 'cpu' # or 'cuda:0'
+image_folder = '/home/pablo/DS/cobopa/OD/25082024/images'
+output_folder = '/home/pablo/DS/cobopa/OD/25082024/Annotations'
+labels = ['foo','NOK']
+device =  'cuda:0' #'cpu' # or
 
-class ImageEditor:
+class ImageEditor: 
     def __init__(self, image_folder, output_folder, labels):
         self.image_folder = image_folder
         self.output_folder = output_folder
